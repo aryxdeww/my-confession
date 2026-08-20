@@ -5,6 +5,178 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Untuk Upi :3</title>
     <style>
+        /* 1. Tambahkan box-sizing agar padding tidak merusak kalkulasi lebar elemen */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #0f172a; 
+            color: #e2e8f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        #intro-screen {
+            background-color: #1e293b;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 85%;
+            max-width: 400px;
+            border-top: 4px solid #3b82f6;
+        }
+
+        #intro-screen h1 {
+            color: #60a5fa;
+            margin: 0 0 15px 0;
+            font-size: 22px;
+        }
+
+        #intro-screen p {
+            color: #94a3b8;
+            margin: 0 0 20px 0;
+            font-size: 16px;
+        }
+
+        .btn {
+            background-color: #3b82f6;
+            color: #ffffff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background-color: #2563eb;
+        }
+
+        #chat-screen {
+            display: none; 
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .chat-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            /* 2. Pastikan lebar kontainer tidak melebihi ruang pembungkusnya */
+            width: 100%; 
+        }
+
+        .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #bfa15f; 
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 10px;
+            color: white;
+            line-height: 1.1;
+            overflow: hidden; 
+            background-image: url('assets/arya.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .bubble {
+            background-color: #5086b3; 
+            color: #ffffff;
+            padding: 15px 20px;
+            border-radius: 16px;
+            border-top-left-radius: 4px; 
+            position: relative;
+            /* 3. Hapus max-width dan gunakan flex: 1 agar ukuran otomatis merespons sisa layar */
+            flex: 1;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .bubble::before {
+            content: "";
+            position: absolute;
+            top: 15px;
+            left: -10px;
+            border-width: 10px 10px 10px 0;
+            border-style: solid;
+            border-color: transparent #5086b3 transparent transparent;
+        }
+
+        .sender-name {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .message-text p {
+            margin: 0 0 10px 0;
+            line-height: 1.5;
+            font-size: 15px;
+        }
+
+        .message-text p:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="intro-screen">
+        <h1>My honest confession for you.</h1>
+        <p>pencet ni tombol kalo kau mw tau :3</p>
+        <button class="btn" onclick="tampilkanChat()">Buka Pesan</button>
+    </div>
+  
+    <div id="chat-screen">
+        <div class="chat-container">
+            <div class="avatar"></div>
+            <div class="bubble">
+                <div class="sender-name">Arya Dewangga</div>
+                <div class="message-text">
+                    <p>Dear Fitri Diyah Ayu Palupi (A.K.A Upi),</p>
+                    <p>"Aku mencintaimu, lebih dari apa pun di dunia ini. Untuk pertama kalinya, kamu memberiku percikan yang membuatku kembali merasa benar-benar hidup. Dari sekian banyak hal, hanya kamu yang berhasil membuatku berani membuka hati. Dan ya... kamu sukses membuat pria yang dulu hanya bisa berharap ini, kini jatuh cinta sedalam-dalamnya padamu. Mungkin caraku mencintaimu belum sempurna, tapi aku berjanji akan selalu memberikan yang terbaik, hanya untukmu."</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function tampilkanChat() {
+            document.getElementById('intro-screen').style.display = 'none';
+            document.getElementById('chat-screen').style.display = 'block';
+        }
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Upi :3</title>
+    <style>
         body {
             margin: 0;
             padding: 0;
